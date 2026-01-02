@@ -2,92 +2,74 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>HADIX</title>
+<title>HADIX Overlay</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <style>
+/* بک‌گراند شفاف */
 html, body {
   margin: 0;
+  padding: 0;
   width: 100%;
   height: 100%;
-  background: radial-gradient(circle at top, #0c1022, #000000);
+  background: transparent; /* مهم برای overlay */
   overflow: hidden;
   font-family: Arial, Helvetica, sans-serif;
-}
-
-/* مرکز صفحه */
-.container {
-  width: 100%;
-  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+/* کانتینر */
+.container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 /* متن HADIX */
 .logo {
   font-size: 96px;
   font-weight: 700;
-  letter-spacing: 12px;
-  color: #ffffff;
-  text-shadow:
-    0 0 10px rgba(120, 120, 255, 0.6),
-    0 0 30px rgba(80, 80, 255, 0.4);
-  animation: glow 3s ease-in-out infinite;
+  color: #FFD700; /* زرد */
+  letter-spacing: 8px;
+  text-shadow: 0 0 10px #FFD700, 0 0 20px #FFD700;
+  animation: glow 2s ease-in-out infinite alternate;
+  z-index: 2;
 }
 
-/* انیمیشن نرم مثل hadix */
+/* خط نور زرد زیر متن */
+.glow-line {
+  width: 60%;
+  height: 4px;
+  background: #FFD700;
+  box-shadow: 0 0 15px #FFD700, 0 0 30px #FFD700;
+  margin-top: 10px;
+  border-radius: 2px;
+  animation: lineGlow 2s ease-in-out infinite alternate;
+  z-index: 1;
+}
+
+/* انیمیشن متن */
 @keyframes glow {
-  0% {
-    opacity: 0.4;
-    transform: scale(0.98);
-  }
-  50% {
-    opacity: 1;
-    transform: scale(1.02);
-  }
-  100% {
-    opacity: 0.4;
-    transform: scale(0.98);
-  }
+  0% { opacity: 0.6; transform: scale(0.98); }
+  50% { opacity: 1; transform: scale(1.02); }
+  100% { opacity: 0.6; transform: scale(0.98); }
 }
 
-/* افکت ذرات ساده */
-.star {
-  position: absolute;
-  width: 2px;
-  height: 2px;
-  background: white;
-  opacity: 0.6;
-  animation: float 6s linear infinite;
-}
-
-@keyframes float {
-  from {
-    transform: translateY(100vh);
-  }
-  to {
-    transform: translateY(-10px);
-  }
+/* انیمیشن خط */
+@keyframes lineGlow {
+  0% { opacity: 0.4; transform: scaleX(0.95); }
+  50% { opacity: 1; transform: scaleX(1.05); }
+  100% { opacity: 0.4; transform: scaleX(0.95); }
 }
 </style>
 </head>
-
 <body>
-
 <div class="container">
   <div class="logo">HADIX</div>
+  <div class="glow-line"></div>
 </div>
-
-<script>
-for (let i = 0; i < 30; i++) {
-  const star = document.createElement("div");
-  star.className = "star";
-  star.style.left = Math.random() * 100 + "vw";
-  star.style.animationDuration = (3 + Math.random() * 5) + "s";
-  document.body.appendChild(star);
-}
-</script>
-
 </body>
 </html>
