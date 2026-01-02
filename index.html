@@ -43,16 +43,18 @@ html, body {
   z-index: 2;
 }
 
-/* خط زرد پایینی */
+/* خط زرد پایینی با هایلایت */
 .glow-line {
   position: absolute;
-  bottom: 10%; /* دقیقاً پایین متن */
+  bottom: 10%;
   left: 0;
-  width: 100%; /* از چپ تا راست صفحه */
+  width: 100%;
   height: 4px;
   background: linear-gradient(90deg, #FFD700 0%, #FFFF33 50%, #FFD700 100%);
-  box-shadow: 0 0 15px #FFD700, 0 0 30px #FFFF33;
+  box-shadow: 0 0 20px #FFD700, 0 0 40px #FFFF33, 0 0 60px #FFD700;
+  border-radius: 2px;
   animation: lineMove 2s linear infinite;
+  background-size: 200% 100%;
 }
 
 /* انیمیشن متن */
@@ -66,10 +68,6 @@ html, body {
 @keyframes lineMove {
   0% { background-position: -200% 0; }
   100% { background-position: 200% 0; }
-}
-
-.glow-line {
-  background-size: 200% 100%;
 }
 </style>
 </head>
