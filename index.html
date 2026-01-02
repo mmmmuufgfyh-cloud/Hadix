@@ -5,7 +5,6 @@
 <title>HADIX Overlay</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
-/* بک‌گراند شفاف */
 html, body {
   margin: 0;
   padding: 0;
@@ -17,6 +16,7 @@ html, body {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 }
 
 /* کانتینر */
@@ -34,35 +34,42 @@ html, body {
   font-weight: 700;
   color: #FFD700; /* زرد */
   letter-spacing: 8px;
-  text-shadow: 0 0 10px #FFD700, 0 0 20px #FFD700;
-  animation: glow 2s ease-in-out infinite alternate;
+  text-shadow:
+    0 0 5px #FFD700,
+    0 0 10px #FFD700,
+    0 0 20px #FFD700,
+    0 0 40px #FFD700;
+  animation: neonPulse 1.8s ease-in-out infinite alternate;
   z-index: 2;
 }
 
-/* خط نور زرد زیر متن */
+/* خط زرد پایینی */
 .glow-line {
-  width: 60%;
+  position: absolute;
+  bottom: 10%; /* دقیقاً پایین متن */
+  left: 0;
+  width: 100%; /* از چپ تا راست صفحه */
   height: 4px;
-  background: #FFD700;
-  box-shadow: 0 0 15px #FFD700, 0 0 30px #FFD700;
-  margin-top: 10px;
-  border-radius: 2px;
-  animation: lineGlow 2s ease-in-out infinite alternate;
-  z-index: 1;
+  background: linear-gradient(90deg, #FFD700 0%, #FFFF33 50%, #FFD700 100%);
+  box-shadow: 0 0 15px #FFD700, 0 0 30px #FFFF33;
+  animation: lineMove 2s linear infinite;
 }
 
 /* انیمیشن متن */
-@keyframes glow {
-  0% { opacity: 0.6; transform: scale(0.98); }
-  50% { opacity: 1; transform: scale(1.02); }
-  100% { opacity: 0.6; transform: scale(0.98); }
+@keyframes neonPulse {
+  0% { opacity: 0.6; text-shadow: 0 0 5px #FFD700, 0 0 10px #FFD700, 0 0 20px #FFD700, 0 0 40px #FFD700; }
+  50% { opacity: 1; text-shadow: 0 0 10px #FFD700, 0 0 20px #FFD700, 0 0 40px #FFD700, 0 0 80px #FFD700; }
+  100% { opacity: 0.6; text-shadow: 0 0 5px #FFD700, 0 0 10px #FFD700, 0 0 20px #FFD700, 0 0 40px #FFD700; }
 }
 
-/* انیمیشن خط */
-@keyframes lineGlow {
-  0% { opacity: 0.4; transform: scaleX(0.95); }
-  50% { opacity: 1; transform: scaleX(1.05); }
-  100% { opacity: 0.4; transform: scaleX(0.95); }
+/* حرکت نور روی خط */
+@keyframes lineMove {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.glow-line {
+  background-size: 200% 100%;
 }
 </style>
 </head>
