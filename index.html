@@ -1,88 +1,157 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE html><html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>HADIX</title>
-
-<style>
-html,body{
-margin:0;
-width:100%;
-height:100%;
-background:transparent;
-overflow:hidden;
-display:flex;
-justify-content:center;
-align-items:center;
-font-family:Arial,sans-serif;
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hadix | Animated Website</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }body {
+  background: linear-gradient(135deg, #0f172a, #020617);
+  color: #ffffff;
+  overflow-x: hidden;
 }
 
-.container{
-display:flex;
-flex-direction:column;
-align-items:center;
-animation:float 5s ease-in-out infinite;
+header {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
 }
 
-.logo{
-font-size:96px;
-font-weight:700;
-letter-spacing:8px;
-color:#FFD700;
-
-text-shadow:
-0 0 8px rgba(255,215,0,.55),
-0 0 15px rgba(255,215,0,.35);
-
-animation:wave 4s ease-in-out infinite;
+.hero h1 {
+  font-size: 4rem;
+  letter-spacing: 4px;
+  animation: fadeInDown 1.5s ease;
 }
 
-.line{
-width:100%;
-height:4px;
-margin-top:10px;
-border-radius:20px;
-
-background:linear-gradient(
-90deg,
-#ffd700,
-#fff176,
-#ffd700
-);
-
-box-shadow:
-0 0 10px rgba(255,215,0,.7),
-0 0 20px rgba(255,215,0,.5);
-
-animation:shine 3s linear infinite;
-background-size:200% 100%;
+.hero p {
+  margin-top: 20px;
+  font-size: 1.2rem;
+  color: #cbd5f5;
+  animation: fadeInUp 2s ease;
 }
 
-@keyframes float{
-0%{transform:translateY(0px);}
-50%{transform:translateY(-3px);}
-100%{transform:translateY(0px);}
+.btn {
+  margin-top: 40px;
+  display: inline-block;
+  padding: 14px 36px;
+  border-radius: 50px;
+  background: #6366f1;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  transition: transform 0.3s, box-shadow 0.3s;
+  animation: float 3s ease-in-out infinite;
 }
 
-@keyframes wave{
-0%{transform:translateX(-6px);}
-50%{transform:translateX(6px);}
-100%{transform:translateX(-6px);}
+.btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 30px rgba(99,102,241,0.6);
 }
 
-@keyframes shine{
-0%{background-position:-200% 0;}
-100%{background-position:200% 0;}
+section {
+  padding: 100px 10%;
 }
-</style>
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+}
+
+.card {
+  background: rgba(255,255,255,0.05);
+  border-radius: 20px;
+  padding: 30px;
+  text-align: center;
+  backdrop-filter: blur(10px);
+  transition: transform 0.4s;
+  animation: fadeIn 1.5s ease;
+}
+
+.card:hover {
+  transform: translateY(-15px) scale(1.05);
+}
+
+.card h3 {
+  margin-bottom: 15px;
+  color: #a5b4fc;
+}
+
+footer {
+  text-align: center;
+  padding: 40px;
+  background: #020617;
+  color: #94a3b8;
+}
+
+/* Animations */
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-60px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(60px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
+/* Background moving circles */
+.circle {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(99,102,241,0.15);
+  animation: move 20s linear infinite;
+}
+
+.circle:nth-child(1) { width: 200px; height: 200px; top: 10%; left: 10%; }
+.circle:nth-child(2) { width: 300px; height: 300px; bottom: 10%; right: 10%; animation-duration: 30s; }
+
+@keyframes move {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-80px); }
+  100% { transform: translateY(0); }
+}
+
+  </style>
 </head>
-
-<body>
-
-<div class="container">
-<div class="logo">HADIX</div>
-<div class="line"></div>
-</div>
-
-</body>
+<body>  <header>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="hero">
+      <h1><span style="background: yellow; color: black; padding: 5px 15px; border-radius: 10px;">HADIX</span></h1>
+      <p>Modern Animated Website Experience</p>
+      <a href="#about" class="btn">Explore</a>
+    </div>
+  </header>  <section id="about">
+    <h2 style="text-align:center; margin-bottom:60px; font-size:2.5rem;">About Hadix</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>Fast</h3>
+        <p>Optimized performance with smooth animations.</p>
+      </div>
+      <div class="card">
+        <h3>Modern</h3>
+        <p>Clean UI with glassmorphism design.</p>
+      </div>
+      <div class="card">
+        <h3>Responsive</h3>
+        <p>Perfect on mobile, tablet, and desktop.</p>
+      </div>
+    </div>
+  </section>  <footer>
+    <p>© 2025 Hadix. All Rights Reserved.</p>
+  </footer></body>
 </html>
