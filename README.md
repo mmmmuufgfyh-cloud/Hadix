@@ -1,74 +1,86 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <meta charset="UTF-8">
 <title>HADIX</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-html, body {
-  margin: 0;
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(circle at top, #0c1022, #000000);
-  overflow: hidden;
-  font-family: Arial, Helvetica, sans-serif;
+html,body{
+margin:0;
+width:100%;
+height:100%;
+background:transparent;
+overflow:hidden;
+display:flex;
+justify-content:center;
+align-items:center;
+font-family:Arial,sans-serif;
 }
 
-/* مرکز صفحه */
-.container {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.container{
+display:flex;
+flex-direction:column;
+align-items:center;
+animation:float 5s ease-in-out infinite;
 }
 
-/* متن HADIX */
-.logo {
-  font-size: 96px;
-  font-weight: 700;
-  letter-spacing: 12px;
-  color: #ffffff;
-  text-shadow:
-    0 0 10px rgba(120, 120, 255, 0.6),
-    0 0 30px rgba(80, 80, 255, 0.4);
-  animation: glow 3s ease-in-out infinite;
+/* هایلایت متن */
+.logo{
+font-size:96px;
+font-weight:700;
+letter-spacing:8px;
+display:inline-block;
+padding:5px 20px;
+border-radius:12px;
+
+background:rgba(255, 215, 0, 0.25);
+color:#fff176;
+
+text-shadow:
+0 0 8px rgba(255,215,0,.55),
+0 0 15px rgba(255,215,0,.35);
+
+animation:wave 4s ease-in-out infinite;
+backdrop-filter: blur(6px);
+border:1px solid rgba(255,215,0,0.5);
 }
 
-/* انیمیشن نرم مثل hadix */
-@keyframes glow {
-  0% {
-    opacity: 0.4;
-    transform: scale(0.98);
-  }
-  50% {
-    opacity: 1;
-    transform: scale(1.02);
-  }
-  100% {
-    opacity: 0.4;
-    transform: scale(0.98);
-  }
+.line{
+width:100%;
+height:4px;
+margin-top:10px;
+border-radius:20px;
+
+background:linear-gradient(
+90deg,
+#ffd700,
+#fff176,
+#ffd700
+);
+
+box-shadow:
+0 0 10px rgba(255,215,0,.7),
+0 0 20px rgba(255,215,0,.5);
+
+animation:shine 3s linear infinite;
+background-size:200% 100%;
 }
 
-/* افکت ذرات ساده */
-.star {
-  position: absolute;
-  width: 2px;
-  height: 2px;
-  background: white;
-  opacity: 0.6;
-  animation: float 6s linear infinite;
+@keyframes float{
+0%{transform:translateY(0px);}
+50%{transform:translateY(-3px);}
+100%{transform:translateY(0px);}
 }
 
-@keyframes float {
-  from {
-    transform: translateY(100vh);
-  }
-  to {
-    transform: translateY(-10px);
-  }
+@keyframes wave{
+0%{transform:translateX(-6px);}
+50%{transform:translateX(6px);}
+100%{transform:translateX(-6px);}
+}
+
+@keyframes shine{
+0%{background-position:-200% 0;}
+100%{background-position:200% 0;}
 }
 </style>
 </head>
@@ -76,18 +88,9 @@ html, body {
 <body>
 
 <div class="container">
-  <div class="logo">HADIX</div>
+<div class="logo">HADIX</div>
+<div class="line"></div>
 </div>
-
-<script>
-for (let i = 0; i < 30; i++) {
-  const star = document.createElement("div");
-  star.className = "star";
-  star.style.left = Math.random() * 100 + "vw";
-  star.style.animationDuration = (3 + Math.random() * 5) + "s";
-  document.body.appendChild(star);
-}
-</script>
 
 </body>
 </html>
