@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <title>HADIX</title>
@@ -7,13 +7,11 @@
 <style>
 html,body{
 margin:0;
-width:100%;
 height:100%;
-background:transparent;
-overflow:hidden;
 display:flex;
 justify-content:center;
 align-items:center;
+background:#0b0b0b;
 font-family:Arial,sans-serif;
 }
 
@@ -21,68 +19,37 @@ font-family:Arial,sans-serif;
 display:flex;
 flex-direction:column;
 align-items:center;
-animation:float 5s ease-in-out infinite;
 }
 
-/* هایلایت متن */
+/* متن HADIX */
 .logo{
-font-size:96px;
+font-size:90px;
 font-weight:700;
-letter-spacing:8px;
-display:inline-block;
-padding:5px 20px;
-border-radius:12px;
+letter-spacing:6px;
+color:#ffd700;
 
-background:rgba(255, 215, 0, 0.25);
-color:#fff176;
-
+/* نور کم و ملایم */
 text-shadow:
-0 0 8px rgba(255,215,0,.55),
-0 0 15px rgba(255,215,0,.35);
+0 0 6px rgba(255,215,0,0.4),
+0 0 12px rgba(255,215,0,0.2);
 
-animation:wave 4s ease-in-out infinite;
-backdrop-filter: blur(6px);
-border:1px solid rgba(255,215,0,0.5);
+margin-bottom:12px;
 }
 
+/* خط زیر */
 .line{
-width:100%;
+width:260px;
 height:4px;
-margin-top:10px;
+background:#ffd700;
 border-radius:20px;
 
-background:linear-gradient(
-90deg,
-#ffd700,
-#fff176,
-#ffd700
-);
-
+/* نور ملایم */
 box-shadow:
-0 0 10px rgba(255,215,0,.7),
-0 0 20px rgba(255,215,0,.5);
-
-animation:shine 3s linear infinite;
-background-size:200% 100%;
-}
-
-@keyframes float{
-0%{transform:translateY(0px);}
-50%{transform:translateY(-3px);}
-100%{transform:translateY(0px);}
-}
-
-@keyframes wave{
-0%{transform:translateX(-6px);}
-50%{transform:translateX(6px);}
-100%{transform:translateX(-6px);}
-}
-
-@keyframes shine{
-0%{background-position:-200% 0;}
-100%{background-position:200% 0;}
+0 0 6px rgba(255,215,0,0.4),
+0 0 10px rgba(255,215,0,0.2);
 }
 </style>
+
 </head>
 
 <body>
