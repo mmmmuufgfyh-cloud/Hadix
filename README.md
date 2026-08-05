@@ -2,61 +2,52 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>HADIX</title>
+<title>Double Yellow Lines</title>
 
 <style>
 html,body{
-margin:0;
-height:100%;
-display:flex;
-justify-content:center;
-align-items:center;
-background:#0b0b0b;
-font-family:Arial,sans-serif;
+    margin:0;
+    width:100%;
+    height:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:transparent;
 }
 
 .container{
-display:flex;
-flex-direction:column;
-align-items:center;
+    width:320px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:80px; /* فاصله بین دو خط */
 }
 
-/* متن HADIX */
-.logo{
-font-size:90px;
-font-weight:700;
-letter-spacing:6px;
-color:#ffd700;
-
-/* نور کم و ملایم */
-text-shadow:
-0 0 6px rgba(255,215,0,0.4),
-0 0 12px rgba(255,215,0,0.2);
-
-margin-bottom:12px;
-}
-
-/* خط زیر */
 .line{
-width:260px;
-height:4px;
-background:#ffd700;
-border-radius:20px;
+    width:260px;
+    height:4px;
+    border-radius:50px;
 
-/* نور ملایم */
-box-shadow:
-0 0 6px rgba(255,215,0,0.4),
-0 0 10px rgba(255,215,0,0.2);
+    background:linear-gradient(
+        90deg,
+        #ffd700,
+        #fff8c4,
+        #ffd700
+    );
+
+    box-shadow:
+        0 0 4px rgba(255,255,255,.20),
+        0 0 8px rgba(255,215,0,.35),
+        0 0 14px rgba(255,215,0,.20);
 }
 </style>
-
 </head>
 
 <body>
 
 <div class="container">
-<div class="logo">HADIX</div>
-<div class="line"></div>
+    <div class="line"></div>
+    <div class="line"></div>
 </div>
 
 </body>
